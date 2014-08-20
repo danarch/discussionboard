@@ -1,0 +1,16 @@
+%h1 All Discussions
+
+= link_to 'New_Discussion', new_article_path
+%table
+  %tr
+    %th Title
+    %th Text
+    %th Votes
+    %th Comments
+
+  - @articles.each do |article|
+    %tr
+      %td= link_to article.title, article_path(article)
+      %td= article.text
+      %td= article.votes.count
+      %td= article.comments.count
